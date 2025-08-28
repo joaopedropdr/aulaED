@@ -47,6 +47,21 @@ const cli = new Cliente("João Pedro", "43006556833", end);
 
 cli.dadosCliente();
 
+//-------------ex-7----------------------
+const Funcionario = require("./exercicio7/Funcionario.js");
+const Desenvolvedor = require("./exercicio7/Desenvolvedor.js");
+const Gerente = require("./exercicio7/Gerente.js");
+
+const funcionario1 = new Funcionario("João Pedro", 2000);
+const funcionario2 = new Desenvolvedor("Jose", 10000, 15);
+const funcionario3 = new Gerente("Luisa", 5000, 22);
+
+funcionario1.calcularBonus(5);
+funcionario2.calcularBonus();
+funcionario3.calcularBonus();
+
+
+
 
 
 
