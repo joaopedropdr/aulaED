@@ -10,4 +10,4 @@ class Pessoa {
 
 }
 
-module.exports = Pessoa;
+export default Pessoa;
