@@ -1,4 +1,4 @@
-const Funcionario = require("./Funcionario.js");
+import {Funcionario} from './Funcionario.js';
 
 class Gerente extends Funcionario {
     constructor(nome, salario, qtdTarefas) {
@@ -21,4 +21,4 @@ SALÁRIO COM BÔNUS: ${novoSalario}`);
 
 }
 
-module.exports = Gerente;
+export {Gerente};

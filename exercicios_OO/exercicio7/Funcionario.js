@@ -14,4 +14,4 @@ SALÁRIO COM BÔNUS: ${novoSalario}`);
     }
 }
 
-module.exports = Funcionario;
+export {Funcionario};

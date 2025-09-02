@@ -10,4 +10,4 @@ class Pessoa {
 
 }
 
-export default Pessoa;
+export {Pessoa};
