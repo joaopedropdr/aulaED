@@ -20,10 +20,14 @@ class MeuArray {
         return tarefaRemovida;
     }
 
+    verTamanho() {
+        console.log(this.#tamanho);
+    }
+
     verTarefas() {
         const tabelaTarefas = console.table(this.#items);
         return tabelaTarefas;
     }
 }
 
-module.exports = MeuArray;
+export {MeuArray};
