@@ -3,9 +3,9 @@ import {Node} from "./node.js";
 class Binarytree {
     #root = null;
 
-    insert(valeu) {
+    insert(value) {
         const newNode = new Node(value);
-        if(this.#root === newNode) {
+        if(this.#root === null) {
             this.#root = newNode;
         } else {
             this._insertNode(this.#root, newNode);
@@ -99,7 +99,7 @@ class Binarytree {
         this.#root = this._removeNode(this.#root, value) // Inicia a remoção pela raiz;
     }
 
-    removeNode(node, value) {
+    _removeNode(node, value) {
         if(node === null) {
             return null; // Se o nó é null, não há nada para remover
         }
@@ -134,3 +134,6 @@ class Binarytree {
         }
     }
 }
+
+
+export {Binarytree};

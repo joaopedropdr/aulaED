@@ -70,6 +70,18 @@ class Linkedlist {
         }
         console.log(list + " undefined");
     }
+
+    size() {
+        let current = this.#head;
+        let count = 0;
+        while(current !== undefined) {
+            cunt++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    isEmpty = () => this.#head === undefined;
 }
 
 export {Linkedlist};
