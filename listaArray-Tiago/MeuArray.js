@@ -30,7 +30,7 @@ class MeuArray {
     }
 
     obterElemento(i) {
-        return this.#items[i]
+        return this.#items[i];
     }
 
     limpar() {

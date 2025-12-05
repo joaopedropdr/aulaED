@@ -47,15 +47,118 @@ class DoublyLinkedList {
         this.#length--;
         return removeNode.value;
     }
-    removeFirst() {}
-    traverse() {}
-    traverseReverse() {}
-    insertAt(value ,index) {}
-    find(value) {}
-    removeAt(index) {}
+
+    removeFirst() {
+        if(this.#head == undefined) return undefined;
+
+        const removeNode = this.#head;
+        if(this.#head === this.#tail) {
+            this.#head = null;
+            this.#tail = null;
+        }  else {
+            this.#head = this.#head.next;
+            this.#head.prev = undefined;
+        }
+
+        this.#length--;
+        return removeNode.value;       
+    }
+
+    traverse() {
+        if(this.isEmpty()) {
+            console.log("A lista está vazia");
+            return;
+        }
+
+        let current = this.#head;
+        while (current) {
+            console.log(current.value);
+            current = current.next;
+        }
+    }
+
+    traverseReverse() {
+        if(this.isEmpty()) {
+            console.log("A lista está vazia");
+            return;
+        }
+
+        let current = this.#tail;
+        while (current) {
+            console.log(current.value);
+            current = current.next;
+        }
+    }
+
+    insertAt(value ,index) {
+        if(index < 0 || index > this.#length) return undefined;
+
+        const newNode = new Node(value);
+        if(index === 0) {
+            this.prepend(value);
+            return;
+        }
+
+        if(index == this.#length) {
+            this.append(value);
+            return;
+        }
+        let current = this.#head;
+        let previous;
+        let count = 0;
+        while (count < index) {
+            previous = current;
+            current = current.next;
+            count++;
+        }
+        newNode.next = current;
+        newNode.prev = previous;
+        previous.next = newNode;
+        current.prev = newNode;
+        this.#length++;
+    }
+
+    find(value) {
+        let current = this.#head;
+        let index = 0;
+        while(current) {
+            if(current.value === value) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+
+        return -1;
+    }
+    
+    removeAt(index) {
+        if(index < 0 || index > this.#length) return undefined;
+        if(index === 0) return this.removeFirst();
+        if(index === this.#length - 1) return this.removeLast();
+        let current = this.#head;
+        let count = 0;
+        while (count < index) {
+            current = current.next;
+            count++;
+        }
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+        this.#length--;
+        return current.value;
+    }
     size = () => this.#length; 
     isEmpty = () => this.#length === 0;
-    toString() {} 
+
+    toString() {
+        let current = this.#head;
+        let list = "";
+        while(current !== undefined) {
+            list += `${current.value} -> `;
+            current = current.next;
+        }
+        console.log(list + " undefined");
+    }
 }
 
 export {DoublyLinkedList};

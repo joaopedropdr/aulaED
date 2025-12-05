@@ -1,4 +1,4 @@
-class Feiticos {
+class Pilha {
     #itens = [];
     #tamanho = 0;
 
@@ -19,11 +19,21 @@ class Feiticos {
         return itemRemovido;
     }
 
-    verTopo = () => console.log(this.#itens[this.#tamanho - 1]);
+    topo() {
+        if(this.#tamanho === 0) {
+            return undefined;
+        }
+        return this.#itens[this.#tamanho - 1];
+    }
+    ultimo() {
+  
+    }
+    isEmpty = () => this.#tamanho === 0;
+    limpar() {
+        this.#itens = [];
+        this.#tamanho = 0;
+    }
 
-    // verFeiticos = () => console.table()
-    
-    conferir = () => this.#tamanho === 0;
 }
 
-export {Feiticos};
+export {Pilha};

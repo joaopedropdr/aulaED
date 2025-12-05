@@ -1,11 +1,12 @@
+
 import {Node} from "./node.js";
 
 class Binarytree {
-    #root = null;
+    #root = undefined;
 
     insert(value) {
         const newNode = new Node(value);
-        if(this.#root === null) {
+        if(this.#root === undefined) {
             this.#root = newNode;
         } else {
             this._insertNode(this.#root, newNode);
@@ -14,13 +15,13 @@ class Binarytree {
 
     _insertNode(node, newNode) {
         if (newNode.value <= node.value) {
-            if(node.left === null) {
+            if(node.left === undefined) {
                 node.left = newNode;
             } else {
                 this._insertNode(node.left, newNode);
             }
         } else {
-            if(node.rigth === null) {
+            if(node.rigth === undefined) {
                 node.rigth = newNode;
             } else {
                 this._insertNode(node.rigth, newNode);
@@ -30,7 +31,7 @@ class Binarytree {
 
     // método usdo para visitar cada nó de maneira crescente
     inOrder(node = this.#root) {
-        if(node !== null) {
+        if(node !== undefined) {
             this.inOrder(node.left); // visita a subárvore a esquerda
             console.log(node.value); // Visita o nó atual
             this.inOrder(node.rigth); // Visita a subárvore a direita
@@ -39,7 +40,7 @@ class Binarytree {
 
     // método usado para processar ou manipular cada nó antes de seus filhos
     preOrder(node = this.#root) {
-        if(node !== null) {
+        if(node !== undefined) {
             console.log(node.value); // Visita o nó atual
             this.preOrder(node.left); // visita a subárvore a esquerda
             this.preOrder(node.rigth); // Visita a subárvore a direita           
@@ -48,7 +49,7 @@ class Binarytree {
 
     // Método usado para processar os nós filhos antes de seu nó pai
     postOrder(node = this.#root) {
-        if (node !== null) {
+        if (node !== undefined) {
             this.postOrder(node.left); // visita a subárvore a esquerda
             this.postOrder(node.rigth); // Visita a subárvore a direita  
             console.log(node.value); // Visita o nó atual
@@ -57,7 +58,7 @@ class Binarytree {
 
     // Método auxiliar para encontrar o nó com o menor valor
     _findMinNode(node) {
-        while(node.left !== null) {
+        while(node.left !== undefined) {
             // Continua indo para esquerda até chegar no menor valor
             node = node.left;
         }
@@ -66,7 +67,7 @@ class Binarytree {
 
     // Método auxiliar para encontrar o nó com o maior valor
     _findMaxNode(node) {
-        while(node.rigth !== null) {
+        while(node.rigth !== undefined) {
             // Continua indo para direita até chegar no maior valor
             node = node.rigth;
         }
@@ -81,7 +82,7 @@ class Binarytree {
     // Metodo auxiliar para realizar a busca recursivamente
     _serachNode(node, value) {
         // Se o nó atual é null, o valor não está na árvore
-        if(node === null) return false;
+        if(node === undefined) return false;
 
         if(value === node.value) {
             // Se o valor é encontrado, retorne true
@@ -100,8 +101,8 @@ class Binarytree {
     }
 
     _removeNode(node, value) {
-        if(node === null) {
-            return null; // Se o nó é null, não há nada para remover
+        if(node === undefined) {
+            return undefined; // Se o nó é null, não há nada para remover
         }
 
         if(value < node.value) {
@@ -112,16 +113,16 @@ class Binarytree {
             return node;
         } else {
             // caso 1: Nósem filhos (nó folha)
-            if(node.left === null && node.rigth === null) {
-                node = null;
+            if(node.left === undefined && node.rigth === undefined) {
+                node = undefined;
                 return node;
             }
 
             // caso 2: nó com dois filhos
-            if(node.left === null) {
+            if(node.left === undefined) {
                 node = node.rigth;
                 return node;
-            } else if(node.rigth === null) {
+            } else if(node.rigth === undefined) {
                 node = node.left;
                 return node;
             }

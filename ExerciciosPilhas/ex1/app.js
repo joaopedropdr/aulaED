@@ -1,4 +1,4 @@
-import { Feiticos } from './Feiticos.js';
+import { Feiticos } from '../Pilha.js';
 
 const feitico = new Feiticos;
 

@@ -10,7 +10,7 @@ class Fila {
     }
     
     dequeue() {
-        if(this.estaVazia()) {
+        if(this.isEmpty()) {
             return undefined;
         }
         
@@ -27,18 +27,38 @@ class Fila {
     }
     
     front() {
-        if(this.estaVazia()) {
+        if(this.isEmpty()) {
             return undefined;
         }
         
         return this.#items[this.#inicio];
     }
-    
-    tamanho = () => this.#fim - this.#inicio;
-    
-    estaVazia = () => this.#fim === this.#inicio;
+    search(value) {
+        if(this.isEmpty()) {
+            return undefined;
+        }
 
-    limpar() {
+        for(let i =0; i < this.size(); i++) {
+            if(value === this.#items[i]) {
+                console.log(this.#items[i]);
+                return;
+            }
+        }
+    }
+
+    end() {
+        if(this.isEmpty()) {
+            return undefined;
+        }
+        
+        return this.#items[this.#fim];
+    }
+    
+    size = () => this.#fim - this.#inicio;
+    
+    isEmpty = () => this.#fim === this.#inicio;
+
+    clear() {
         this.#items = [];
         this.#inicio = 0;
         this.#fim = 0;
